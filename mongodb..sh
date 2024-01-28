@@ -12,9 +12,9 @@ LOGFILE="/tmp/$0-$TIMESTAMP.log"
 VALIDATE(){
 if [ $1 -ne 0 ]
 then    
-    echo "$2 ....$R FAILED $N"   
+    echo -e "$2 ....$R FAILED $N"   
 else
-    echo "$2.....$G SUCCESS $G"
+    echo -e "$2.....$G SUCCESS $G"
 fi         
 }         
 
@@ -39,10 +39,8 @@ VALIDATE $? "enabling mongodb"
 systemctl start mongod &>> $LOGFILE
 VALIDATE $? "starting mongodb"
  
-sed -i 's /127.0.0.0/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
 VALIDATE $? "remote access to mongodb"
 
 systemctl restart mongod &>> $LOGFILE
 VALIDATE $? "restarting mongodb"
-
-
