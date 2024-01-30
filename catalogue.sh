@@ -63,7 +63,7 @@ cd /app
 npm install   &>> $LOGFILE
 VALIDATE $? "installing packages"
 
-cp/home/centos/etc/systemd/system/catalogue.service  &>> $LOGFILE
+cp /home/centos/etc/systemd/system/catalogue.service  &>> $LOGFILE
 VALIDATE $? "copying catalogue.service"
 
 systemctl daemon-reload  &>> $LOGFILE
