@@ -49,7 +49,7 @@ VALIDATE $? "moving html directory"
 unzip -o /tmp/web.zip &>> $LOGFILE
 VALIDATE $? "unzipping"
 
-/home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 VALIDATE $? "copied roboshop reverse proxy conf"
 
 systemctl restart nginx &>> $LOGFILE
