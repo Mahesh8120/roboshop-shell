@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ID=(id -u)
-TIMESTAMP=$(date+%F-%H-%M-%S)
+TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$0-$TIMESTAMP.log
 MONGODB_HOST=mongodb.pjdevops.online
 
@@ -10,7 +10,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
   
-if [ $ID -ne 0 ]
+if [ $id -ne 0 ]
 then 
     echo -e "$R error:run this script with root user $N"
     exit 1
