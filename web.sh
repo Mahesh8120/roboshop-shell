@@ -43,7 +43,7 @@ VALIDATE $? "removeing default content"
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
 VALIDATE $? "downloading web application"
 
-/usr/share/nginx/html &>> $LOGFILE
+cd /usr/share/nginx/html &>> $LOGFILE
 VALIDATE $? "moving html directory"
 
 unzip -o /tmp/web.zip &>> $LOGFILE
