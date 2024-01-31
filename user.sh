@@ -81,5 +81,5 @@ VALIDATE $? "copying user.service"
 dnf install mongodb-org-shell -y
 VALIDATE $? "installing mongodb-org"
 
-mongo --host $MONGOD_HOST </app/schema/user.js &>> $LOGFILE
+mongo --host $MONGODB_HOST </app/schema/user.js &>> $LOGFILE
 VALIDATE $? "loading user data into mongodb"
