@@ -1,7 +1,7 @@
 #!/bin /bash
 
-ID=(id -u)
-TIMESTAMP=$(date+%F-%H-%M-%S)
+ID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$0-$TIMESTAMP.log
 MONGODB_HOST=mongodb.pjdevops.online
 
@@ -81,5 +81,5 @@ VALIDATE $? "copying catalogue.service"
 dnf install mongodb-org-shell -y
 VALIDATE $? "installing mongodb-org"
 
-mongo --host $MONGOD_HOST </app/schema/catalogue.js &>> $LOGFILE
+mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "loading catalogue data into mongodb"
