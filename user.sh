@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ID=(id -u)
-TIMESTAMP=$(date+%F-%H-%M-%S)
+ID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$0-$TIMESTAMP.log
 MONGODB_HOST=mongodb.pjdevops.online
 
