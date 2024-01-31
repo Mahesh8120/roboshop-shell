@@ -50,7 +50,7 @@ VALIDATE $? "downloading payment.zip"
 
 cd /app 
 
-unzip /tmp/payment.zip &>> $LOGFILE
+unzip -o /tmp/payment.zip &>> $LOGFILE
 VALIDATE $? "unzipping payment.zip"
 
 cd /app 
