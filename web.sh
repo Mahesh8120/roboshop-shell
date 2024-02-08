@@ -29,28 +29,37 @@ VALIDATE(){
 }
 
 dnf install nginx -y &>> $LOGFILE
-VALIDATE $? "installing nginx"
  
+VALIDATE $? "Installing nginx"
+
 systemctl enable nginx &>> $LOGFILE
-VALIDATE $? "enable nginx"
+
+VALIDATE $? "Enable nginx" 
 
 systemctl start nginx &>> $LOGFILE
-VALIDATE $? "starting nginx"
+
+VALIDATE $? "Starting Nginx"
 
 rm -rf /usr/share/nginx/html/* &>> $LOGFILE
-VALIDATE $? "removeing default content"
+
+VALIDATE $? "removed default website"
 
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
-VALIDATE $? "downloading web application"
+
+VALIDATE $? "Downloaded web application"
 
 cd /usr/share/nginx/html &>> $LOGFILE
-VALIDATE $? "moving html directory"
+
+VALIDATE $? "moving nginx html directory"
 
 unzip -o /tmp/web.zip &>> $LOGFILE
-VALIDATE $? "unzipping"
 
-cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
-VALIDATE $? "copied roboshop reverse proxy conf"
+VALIDATE $? "unzipping web"
+ 
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE 
+
+VALIDATE $? "copied roboshop reverse proxy config"
 
 systemctl restart nginx &>> $LOGFILE
-VALIDATE $? "restarting nginx"
+
+VALIDATE $? "restarted nginx"
